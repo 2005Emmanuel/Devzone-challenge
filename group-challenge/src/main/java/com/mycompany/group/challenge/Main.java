@@ -76,7 +76,7 @@ class Shopping_app {
             case 1:
                 calc.add(500);
                 cart.add("0. #500-Apple");
-                System.out.println("item sucesfully added  to cart"); 
+                System.out.println("item sucesfully added  to cart");
                 break;
 
             case 2:
@@ -102,8 +102,7 @@ class Shopping_app {
                 cart.add("4. #300-Sausage");
                 calc.add(300);
                 break;
-                
-            
+
             case 6:
                 System.out.println("item sucesfully added  to cart");
                 cart.add("5. #500-pringles");
@@ -136,6 +135,7 @@ class Shopping_app {
                 cart.forEach((i) -> {
                     System.out.println(i);
                 });
+              
 
                 break;
             case "B":
@@ -153,10 +153,10 @@ class Shopping_app {
                 System.out.println("succesfully deleted " + cart.remove(delete) + " from cart\n");
                 second_option_menu();
                 break;
-                
-                default:
-                    System.out.println("input right");
-                    break;
+
+            default:
+                System.out.println("input right");
+                break;
 
         }
     }
@@ -171,25 +171,28 @@ class Shopping_app {
         cart_menu = scanner_obj4.nextLine();
         switch (cart_menu) {
             case "1":
-               for(int i : calc){
-                    int sum_ =+sum+i;
-                    System.out.println(sum_);
-                    if (amount > sum_) {
+                sum = 0;
+                calc.forEach((i) -> {
+                    sum = sum + i;
+            });
+                    if (amount >= sum) {
                         System.out.println("payment succesfull");
                         System.out.println("thank you for patronizing SHOPLET " + username);
-                        
+                        int balance = amount-sum;
+                        System.out.println("you balance is " + balance);
 
                     } else {
                         System.out.println("insuficient fund");
                         System.out.println("please remove an item");
                         Scanner scanner_obj5 = new Scanner(System.in);
                         int delete = scanner_obj5.nextInt();
-                        System.out.println("succesfully deleted " + cart.remove(delete)+""+   calc.remove(delete)+ " from cart\n");
+                        System.out.println("succesfully deleted " + cart.remove(delete) + "" + calc.remove(delete) + " from cart\n");
                         second_option_menu();
                     }
-               }
+                
 
                 break;
+
 
             case "2":
                 second_option_menu();
@@ -200,11 +203,12 @@ class Shopping_app {
                 int delete = scanner_obj5.nextInt();
                 System.out.println("succesfully deleted " + cart.remove(delete) + "" + calc.remove(delete) + " from cart\n");
                 second_option_menu();
+                cart_();
                 break;
-                
-                default:
-                    System.out.println("input the right option");
-                    break;
+
+            default:
+                System.out.println("input the right option");
+                break;
         }
 
     }
