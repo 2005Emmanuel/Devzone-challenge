@@ -118,7 +118,7 @@ class Shopping_app {
     }
 
     public void second_option_menu() {
-        String[] option = {"\nA. view your cart", "B. continue Shopping", "C. delete an item from cart by id\n"};
+        String[] option = {"\nA. view your cart", "B. continue Shopping", "C. delete an item from cart by id", "D. Exit"};
         for (String i : option) {
             System.out.println(i);
         }
@@ -153,6 +153,10 @@ class Shopping_app {
                 System.out.println("succesfully deleted " + cart.remove(delete) + " from cart\n");
                 second_option_menu();
                 break;
+             
+            case "D":
+                System.exit(0);
+                break;
 
             default:
                 System.out.println("input right");
@@ -180,6 +184,8 @@ class Shopping_app {
                         System.out.println("thank you for patronizing SHOPLET " + username);
                         int balance = amount-sum;
                         System.out.println("you balance is " + balance);
+                        second_option_menu();
+                         System.out.println("you balance is " + balance);
 
                     } else {
                         System.out.println("insuficient fund");
